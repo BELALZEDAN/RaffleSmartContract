@@ -70,7 +70,7 @@ contract HelperConfig is CodeContracts, Script {
         vm.stopBroadcast();
 
         localNetworkConfig = NetworkConfig({
-                     entranceFee: 0.01 ether, // 1e16
+            entranceFee: 0.01 ether, // 1e16
             interval: 30, // 30 seconds
             vrfCoordinator: address(VRFCoordinatorMock),
             gasLane: 0x8af398995b04c28e9951adb9721ef74c74f93e6a478f39e7e0777be13527e7ef,
