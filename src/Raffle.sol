@@ -21,7 +21,7 @@
 
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.19;
+pragma solidity ^0.8.19;
 
 import {VRFConsumerBaseV2Plus} from "@chainlink/contracts/src/v0.8/vrf/dev/VRFConsumerBaseV2Plus.sol";
 import {VRFV2PlusClient} from "@chainlink/contracts/src/v0.8/vrf/dev/libraries/VRFV2PlusClient.sol";
@@ -69,13 +69,13 @@ contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
 
     /* Functions */
     constructor(
-        uint256 subscriptionId,
-        bytes32 gasLane, // keyHash
-        uint256 interval,
         uint256 entranceFee,
+        bytes32 gasLane,
+        uint64 subscriptionId,
         uint32 callbackGasLimit,
-        address vrfCoordinatorV2
-    ) VRFConsumerBaseV2Plus(vrfCoordinatorV2) {
+        address vrfCoordinator,
+        uint256 interval
+    ) VRFConsumerBaseV2Plus(vrfCoordinator) {
         i_gasLane = gasLane;
         i_interval = interval;
         i_subscriptionId = subscriptionId;
